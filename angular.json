@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "numericalAnalysisApp"
+    }
+  },
+  "defaultProject": "numericalAnalysisApp",
+  "cli": {
+    "analytics": "7a13e846-b820-4aee-86ee-bf2f664ba31c"
+  }
 }
