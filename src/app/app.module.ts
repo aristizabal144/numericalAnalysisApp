@@ -7,6 +7,8 @@ import { PrincipalComponent } from './principal/principal.component';
 import { MenuComponent } from './menu/menu.component';
 import { IncrementalSearchComponent } from './incremental-search/incremental-search.component';
 import { BisectionComponent } from './bisection/bisection.component';
+import { SecantComponent } from './secant/secant.component';
+import { MultipleRootsComponent } from './multiple-roots/multiple-roots.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { BisectionComponent } from './bisection/bisection.component';
     PrincipalComponent,
     MenuComponent,
     IncrementalSearchComponent,
-    BisectionComponent
+    BisectionComponent,
+    SecantComponent,
+    MultipleRootsComponent
   ],
   imports: [
     BrowserModule,
