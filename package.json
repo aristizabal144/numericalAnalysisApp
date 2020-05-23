@@ -19,6 +19,9 @@
     "@angular/platform-browser": "~9.1.4",
     "@angular/platform-browser-dynamic": "~9.1.4",
     "@angular/router": "~9.1.4",
+    "d3": "^3.5.17",
+    "function-plot": "^1.19.1",
+    "plotta.js": "^1.1.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
