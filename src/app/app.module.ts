@@ -7,6 +7,9 @@ import { PrincipalComponent } from './principal/principal.component';
 import { MenuComponent } from './menu/menu.component';
 import { IncrementalSearchComponent } from './incremental-search/incremental-search.component';
 import { BisectionComponent } from './bisection/bisection.component';
+import { NewtonComponent } from './newton/newton.component';
+import { FalseRuleComponent } from './false-rule/false-rule.component';
+import { FixedPointComponent } from './fixed-point/fixed-point.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { BisectionComponent } from './bisection/bisection.component';
     PrincipalComponent,
     MenuComponent,
     IncrementalSearchComponent,
-    BisectionComponent
+    BisectionComponent,
+    NewtonComponent,
+    FalseRuleComponent,
+    FixedPointComponent
   ],
   imports: [
     BrowserModule,
