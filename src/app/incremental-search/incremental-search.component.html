@@ -41,7 +41,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="">Function</span>
                             </div>
-                            <input type="text" (keyup)="onKeyFunction($event)" class="form-control">
+                            <input type="text" (keyup)="onKeyFunction($event)" [(ngModel)]="method.f" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -51,26 +51,26 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="">x0</span>
                         </div>
-                        <input type="text" class="form-control">
+                        <input name="start" type="text" [(ngModel)]="method.start" class="form-control">
                     </div>
 
                     <div class="input-group col-md-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="">Δx</span>
                         </div>
-                        <input type="text" class="form-control">
+                        <input type="text" [(ngModel)]="method.step" class="form-control">
                     </div>
 
                     <div class="input-group col-md-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="">Iterations</span>
                         </div>
-                        <input type="text" class="form-control">
+                        <input type="text" [(ngModel)]="method.end" class="form-control">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-12" style="margin-top: 25px;">
-                        <button type="button" class="btn btn-primary col-md-12" style="font-weight: bold; margin: 0 auto; text-align: center; color: white;">Calculate</button>
+                        <button (click)="getResults()" type="button" class="btn btn-primary col-md-12" style="font-weight: bold; margin: 0 auto; text-align: center; color: white;">Calculate</button>
                     </div>
                 </div>
                 
@@ -94,32 +94,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
+              <tr *ngFor="let row of results">
+                <th scope="row">{{row.iter}}</th>
+                <td>{{row['f(a)*f(b)']}}</td>
+                <td>{{row['f(x)']}}</td>
+                <td>{{row.range}}</td>
+                <td>{{row.root}}</td>
+                <td>{{row.x}}</td>
 
               </tr>
             </tbody>
