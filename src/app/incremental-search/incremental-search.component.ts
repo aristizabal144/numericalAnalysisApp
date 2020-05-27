@@ -18,17 +18,20 @@ export class IncrementalSearchComponent implements OnInit {
   }
   public errors = "";
   public results : [];
+  public functions = ["x","x^3"];
+  
 
   constructor(public request : ServiceDataService) 
   {}
 
   ngOnInit(): void {
-    showFunction("x");
+    showFunction(this.functions);
   }
 
   onKeyFunction(event: any){
     try{
-      showFunction(event.target.value);
+      this.functions[0] = this.method.f;
+      showFunction(this.functions);
       this.errors = "";
     }catch{
       this.errors = "unrecognized function";
