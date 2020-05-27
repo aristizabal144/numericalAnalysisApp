@@ -34,50 +34,46 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="">Function</span>
                             </div>
-                            <input type="text" (keyup)="onKeyFunction($event)" class="form-control">
+                            <input type="text" (keyup)="onKeyFunction($event)" [(ngModel)]="method.f" class="form-control">
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="input-group col-md-4">
+                    <div class="input-group col-md-2">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="">a</span>
                         </div>
-                        <input type="text" class="form-control">
+                        <input name="a" type="text" [(ngModel)]="method.a" class="form-control">
                     </div>
 
-                    <div class="input-group col-md-4">
+                    <div class="input-group col-md-2">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="">b</span>
                         </div>
-                        <input type="text" class="form-control">
+                        <input name="b" type="text" [(ngModel)]="method.b" class="form-control">
                     </div>
 
-                    <div class="input-group col-md-4">
+                    <div class="input-group col-md-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="">Toleration</span>
+                            <span class="input-group-text" id="">Tol</span>
                         </div>
-                        <input type="text" class="form-control">
+                        <input name="tol" type="text" [(ngModel)]="method.tol" class="form-control">
                     </div>
 
-                    <div class="input-group col-md-4">
+                    <div class="input-group col-md-2">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="">MaxIterations</span>
+                            <span class="input-group-text" id="">Iters</span>
                         </div>
-                        <input type="text" class="form-control">
+                        <input name="iters" type="text" [(ngModel)]="method.iters" class="form-control">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-12" style="margin-top: 25px;">
-                        <button type="button" class="btn btn-primary col-md-12" style="font-weight: bold; margin: 0 auto; text-align: center; color: white;">Calculate</button>
+                        <button (click)="getResults()" type="button" class="btn btn-primary col-md-12" style="font-weight: bold; margin: 0 auto; text-align: center; color: white;">Calculate</button>
                     </div>
                 </div>
-                
-                
-                    
 
-                
             </div>
         </div>
         <br>
@@ -94,34 +90,14 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-
-              </tr>
+                <tr *ngFor="let row of results">
+                    <th scope="row">{{row['x']}}</th>
+                    <td>{{row['a']}}</td>
+                    <td>{{row['x_middle']}}</td>
+                    <td>{{row['b']}}</td>
+                    <td>{{row['y_middle']}}</td>
+                    <td>{{row['error']}}</td>
+                </tr>
             </tbody>
           </table>
         
