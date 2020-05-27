@@ -18,7 +18,7 @@ export class IncrementalSearchComponent implements OnInit {
   }
   public errors = "";
   public results : [];
-  public functions = ["x","x^3"];
+  public functions = ["x"];
   
 
   constructor(public request : ServiceDataService) 
