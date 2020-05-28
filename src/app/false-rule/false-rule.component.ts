@@ -26,13 +26,13 @@ export class FalseRuleComponent implements OnInit {
   {}
 
   ngOnInit(): void {
-    showFunction("x");
+    showFunction(this.functions);
   }
 
   onKeyFunction(event: any){
     try{
       this.functions[0] = this.method.f;
-      showFunction(event.target.value);
+      showFunction(this.functions);
       this.errors = "";
     }catch{
       this.errors = "unrecognized function";

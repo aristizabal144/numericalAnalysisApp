@@ -27,7 +27,7 @@ export class MultipleRootsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    showFunction("x");
+    showFunction(this.functions);
   }
 
   onKeyFunctionF(event: any){

@@ -26,7 +26,7 @@ export class BisectionComponent implements OnInit {
   {}
 
   ngOnInit(): void {
-    showFunction("x");
+    showFunction(this.functions);
   }
 
   onKeyFunction(event: any){
