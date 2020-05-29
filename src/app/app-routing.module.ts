@@ -8,6 +8,7 @@ import { FalseRuleComponent } from './false-rule/false-rule.component';
 import { FixedPointComponent } from './fixed-point/fixed-point.component';
 import { SecantComponent } from './secant/secant.component';
 import { MultipleRootsComponent } from './multiple-roots/multiple-roots.component';
+import { LuSimpleComponent } from './lu-simple/lu-simple.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'false_rule', component: FalseRuleComponent},
   { path: 'fixed_point', component: FixedPointComponent},
   { path: 'secant', component: SecantComponent},
-  { path: 'multiple_roots', component: MultipleRootsComponent}
+  { path: 'multiple_roots', component: MultipleRootsComponent},
+  { path: 'lu_simple', component: LuSimpleComponent}
 ];
 
 @NgModule({

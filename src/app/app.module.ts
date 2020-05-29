@@ -13,7 +13,8 @@ import { FalseRuleComponent } from './false-rule/false-rule.component';
 import { FixedPointComponent } from './fixed-point/fixed-point.component';
 import { SecantComponent } from './secant/secant.component';
 import { MultipleRootsComponent } from './multiple-roots/multiple-roots.component';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { LuSimpleComponent } from './lu-simple/lu-simple.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FormsModule } from '@angular/forms'
     FalseRuleComponent,
     FixedPointComponent,
     SecantComponent,
-    MultipleRootsComponent
+    MultipleRootsComponent,
+    LuSimpleComponent
   ],
   imports: [
     BrowserModule,
