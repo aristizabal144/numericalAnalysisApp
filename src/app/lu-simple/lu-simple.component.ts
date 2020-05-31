@@ -14,9 +14,10 @@ export class LuSimpleComponent implements OnInit {
   public cont = [];
   public matrix_A = [];
   public matrix_B = [];
+  public results = [];
 
-  strMatrixA = "";
-  strMatrixB = "";
+  private strMatrixA = "";
+  private strMatrixB = "";
 
   constructor(public request : ServiceDataService) { 
     
@@ -45,10 +46,7 @@ export class LuSimpleComponent implements OnInit {
 
   }
 
-  
-
-  getResults(){
-
+  matrixToString(){
     //MATRIX A TO STRING
     this.strMatrixA += "["
 
@@ -72,25 +70,44 @@ export class LuSimpleComponent implements OnInit {
     this.strMatrixB += "[";
     this.strMatrixB += this.matrix_B.toString();
     this.strMatrixB += "]";
+  }
+
+  stringToMatrix(value : String){
+    let str = value.replace(/\s+/g, '');
+    let arr = str.split("],[");
+    const regex = /[\[|\]]/g;
+    arr = arr.map( val => val.replace(regex,""));
+    let vector = arr.map( val => val.split(","));
+
+    return vector;
+  }
+  
+
+  getResults(){
+
+    this.strMatrixA = "";
+    this.strMatrixB = "";
+
+    this.matrixToString();
 
     this.request.getJson("luSimple", {a: this.strMatrixA, b: this.strMatrixB}).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;
       }else{
         this.errors = "";
+        this.results = res;
+
+        this.results['pivots'].map(element => {
+          element["L"] = this.stringToMatrix(element["L"]);
+          element["U"] = this.stringToMatrix(element["U"]);
+        });
         
       }
     });
     
-
-    let str = "[[2,3,4,4],[2,3,4,1]]";
-    let arr = str.split("],[");
-    const regex = /[\[|\]]/g;
-    arr = arr.map( val => val.replace(regex,""));
-    let vector = arr.map( val => val.split(","));
-
-    console.log(vector);
-    
   }
 
+  printTest(){
+    console.log(this.results);
+  }
 }

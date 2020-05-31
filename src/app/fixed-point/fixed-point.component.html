@@ -42,9 +42,24 @@
                     <div class="form-group col-md-12">
                         <div class="input-group ">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="">Function</span>
+                                <span class="input-group-text" id="">Function f(x)</span>
                             </div>
-                            <input type="text" (keyup)="onKeyFunction($event)" class="form-control">
+                            <input type="text" (keyup)="onKeyFunction($event)" [(ngModel)]="method.f" class="form-control">
+                            <!input type="text" [(ngModel)]="method.function" (keyup)="onKeyFunctionfunction($event)" class="form-control">
+                            <!input type="text" (keyup)="onKeyFunction($event)" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <div class="input-group ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Function G(x)</span>
+                            </div>
+                            <input type="text" (keyup)="onKeyFunction($event)" [(ngModel)]="method.g" class="form-control">
+                            <!input type="text" [(ngModel)]="method.function" (keyup)="onKeyFunctionfunction($event)" class="form-control">
+                            <!input type="text" (keyup)="onKeyFunction($event)" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -52,28 +67,31 @@
                 <div class="row">
                     <div class="input-group col-md-4">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="">x0</span>
+                            <span class="input-group-text" id="">Xi</span>
                         </div>
-                        <input type="text" class="form-control">
+                        <input name="a" type="text" [(ngModel)]="method.a" class="form-control">
                     </div>
 
                     <div class="input-group col-md-4">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="">Δx</span>
+                            <span class="input-group-text" id="">tol</span>
                         </div>
-                        <input type="text" class="form-control">
+                        
+                        <input type="text" [(ngModel)]="method.tol" class="form-control">
                     </div>
 
                     <div class="input-group col-md-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="">Iterations</span>
                         </div>
-                        <input type="text" class="form-control">
+                        
+                        <input type="text" [(ngModel)]="method.iters" class="form-control">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-12" style="margin-top: 25px;">
-                        <button type="button" class="btn btn-primary col-md-12" style="font-weight: bold; margin: 0 auto; text-align: center; color: white;">Calculate</button>
+                        
+                        <button (click)="getResults()" type="button" class="btn btn-primary col-md-12" style="font-weight: bold; margin: 0 auto; text-align: center; color: white;">Calculate</button>
                     </div>
                 </div>
                 
@@ -89,21 +107,22 @@
             <thead class="thead-dark">
               <tr>
                 <th scope="col">Iteration</th>
-                <th scope="col">G(x_n)</th>
-                <th scope="col">F(x_n)</th>
-                <th scope="col">Error Relativo</th>
+                <th scope="col">Error</th>
+                <th scope="col">f(xi)</th>
+                <th scope="col">g(xi)</th>
+                <th scope="col">Xi</th>
                 
-                <th scope="col">X</th>
+                
+                
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
+              <tr *ngFor="let row of results">
+                <th scope="row">{{row.iter}}</th>
+                <td>{{row['error']}}</td>
+                <td>{{row['f(xi)']}}</td>
+                <td>{{row['g(xi)']}}</td>
+                <td>[{{row.xi}}]</td>
 
               </tr>
              
