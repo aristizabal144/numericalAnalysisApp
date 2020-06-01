@@ -12,17 +12,32 @@
   
         <div class="row">
             <div class="col-md-6">
-                <h1 class="mb-4" style="font-weight: bold; text-align: center; color: #19005f;" >Jacobi</h1>
+                <h1 class="mb-4" style="font-weight: bold; text-align: center; color: #19005f;" >Crout</h1>
                 <p>
-                    Jacobi method is nearly similar to the Gauss-Seidel method, 
-                    except that each x-value is improved using the most recent approximations to the values 
-                    of the other variables.
-                    Considering a similar set of equations as the Gauss-Seidel method, we can similarly define matrix A 
-                    as before by assuming that the diagonal terms of matrix A have non-zero values.
-                    The iterative process is terminated when a convergence criterion is satisfied.
-                    Unlike the Gauss-Seidel method, the previous estimations are not instantly replaced 
-                    by the new values in the Jacobi method, thus the storage space required is twice the 
-                    Gauss-Seidel method and the convergence rapidness is lower.  
+                    the Crout matrix decomposition is an LU decomposition which decomposes a matrix into a lower triangular matrix (L), an upper triangular matrix (U) and, although not always needed, a permutation matrix (P).
+
+                    The Crout matrix decomposition algorithm differs slightly from the Doolittle method. Doolittle's method returns a unit lower triangular matrix and an upper triangular matrix, while the Crout method returns a lower triangular matrix and a unit upper triangular matrix.
+
+                    So, if a matrix decomposition of a matrix A is such that:
+
+
+
+                            A = LDU
+
+
+
+                    being L a unit lower triangular matrix, D a diagonal matrix and U a unit upper triangular matrix, then Doolittle's method produces
+
+
+
+                    A = L(DU)
+
+                    and Crout's method produces
+
+
+
+                    A = (LD)U.
+
                 </p>
 
                      <img src="" alt="" style="margin:10px auto; display:block;">
@@ -76,39 +91,54 @@
         <br>
         <br>
 
-        <div class="row" *ngFor="let pivot of values['pivots']; index as i" style="margin-top:20px;">
+        <div class="row" *ngFor="let pivot of results['pivots']; index as i" style="margin-top:20px;">
             <div class="col-md-12">
                 <h1 style="font-weight: bold; text-align: center; color: #19005f;">Step {{i+1}}</h1>
             </div>
-            <div class="col-md-12">
-                <h3 style="font-weight: bold; text-align: center; color: #19005f;">Matrix</h3>
+            <div class="col-md-6">
+                <h3 style="font-weight: bold; text-align: center; color: #19005f;">Matrix L</h3>
             </div>
 
-            <div class="col-md-12">
-                <table class="table table-bordered">
+            <div class="col-md-6">
+                <h3 style="font-weight: bold; text-align: center; color: #19005f;">Matrix U</h3>
+            </div>
+
+
+            <div class="col-md-6">
+                <table  class="table table-bordered">
                     <tbody>
-                        <tr *ngFor="let row of pivot['matrix']">
+                        <tr *ngFor="let row of pivot['L']">
                             <th *ngFor="let val of row">{{val}}</th>
                         </tr>
                     </tbody>
                 </table>
             </div>
-
-            <div class="col-md-12" style="margin-top:20px;" *ngIf="values.length != 0">
-
-                <div class="col-md-12">
-                    <h1 style="font-weight: bold; text-align: center; color: #19005f;">Results</h1>
-                </div>
-    
-                <table  class="table table-bordered col-md-12">
+            <div class="col-md-6">
+                <table  class="table table-bordered">
                     <tbody>
-                        <tr *ngFor="let v of values['values']">
-                            <th style="color:#19005f">{{v[0]}}</th>
-                            <th>{{v[1]}}</th>
+                        <tr *ngFor="let row of pivot['U']">
+                            <th *ngFor="let val of row">{{val}}</th>
                         </tr>
                     </tbody>
                 </table>
             </div>
+        </div>
+
+        <div class="row" style="margin-top:20px;" *ngIf="results.length != 0">
+
+            <div class="col-md-12">
+                <h1 style="font-weight: bold; text-align: center; color: #19005f;">Results</h1>
+            </div>
+
+            <table  class="table table-bordered">
+                <tbody>
+                    <tr *ngFor="let r of results['results']">
+                        <th style="color:#19005f">{{r[0]}}</th>
+                        <th>{{r[1]}}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         
         <svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677" style="position: fixed;">
         <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" fill="#eee"/>

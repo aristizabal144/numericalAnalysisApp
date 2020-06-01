@@ -3,18 +3,18 @@ import { ServiceDataService } from '../service-data.service';
 declare const showFunction:any;
 
 @Component({
-  selector: 'app-jacobi',
-  templateUrl: './jacobi.component.html',
-  styleUrls: ['./jacobi.component.scss']
+  selector: 'app-doolittle',
+  templateUrl: './doolittle.component.html',
+  styleUrls: ['./doolittle.component.scss']
 })
-export class JacobiComponent implements OnInit {
+export class DoolittleComponent implements OnInit {
 
   public errors  = "";
   public size;
   public cont = [];
   public matrix_A = [];
   public matrix_B = [];
-  public values = [];
+  public results = [];
 
   private strMatrixA = "";
   private strMatrixB = "";
@@ -90,15 +90,16 @@ export class JacobiComponent implements OnInit {
 
     this.matrixToString();
 
-    this.request.getJson("jacobi", {a: this.strMatrixA, b: this.strMatrixB}).subscribe((res: any) => {
+    this.request.getJson("doolittle", {a: this.strMatrixA, b: this.strMatrixB}).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;
       }else{
         this.errors = "";
-        this.values = res;
+        this.results = res;
 
-        this.values['pivots'].map(element => {
-          element["matrix"] = this.stringToMatrix(element["matrix"]);
+        this.results['pivots'].map(element => {
+          element["L"] = this.stringToMatrix(element["L"]);
+          element["U"] = this.stringToMatrix(element["U"]);
         });
         
       }
@@ -107,6 +108,6 @@ export class JacobiComponent implements OnInit {
   }
 
   printTest(){
-    console.log(this.values);
+    console.log(this.results);
   }
 }

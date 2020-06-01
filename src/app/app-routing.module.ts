@@ -16,6 +16,9 @@ import { LuPivotComponent } from './lu-pivot/lu-pivot.component';
 import { JacobiComponent } from './jacobi/jacobi.component';
 import { GaussSeidelComponent } from './gauss-seidel/gauss-seidel.component';
 import { SorComponent } from './sor/sor.component';
+import { CroutComponent } from './crout/crout.component';
+import { DoolittleComponent } from './doolittle/doolittle.component';
+import { CholeskyComponent } from './cholesky/cholesky.component';
 
 
 const routes: Routes = [
@@ -34,7 +37,10 @@ const routes: Routes = [
   { path: 'lu_pivot', component: LuPivotComponent},
   { path: 'jacobi', component: JacobiComponent},
   { path: 'gauss_seidel', component: GaussSeidelComponent},
-  { path: 'sor', component: SorComponent}
+  { path: 'sor', component: SorComponent},
+  { path: 'crout', component: CroutComponent},
+  { path: 'doolittle', component: DoolittleComponent},
+  { path: 'cholesky', component: CholeskyComponent}
 ];
 
 @NgModule({
