@@ -1,0 +1,27 @@
+$primary: #19005f;
+
+#content {
+    width: 100%;
+    padding: 0;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+#clouds {
+    width: 100%;
+}
+
+.table .thead-dark th {
+    background: $primary;
+}
+
+.btn{
+&.btn-primary{
+     background: $primary;
+     border-color: $primary;
+&:hover, &:focus{
+              background: $primary !important;
+              border-color: $primary !important;
+          }
+}
+}

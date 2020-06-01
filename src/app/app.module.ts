@@ -22,9 +22,15 @@ import { LuPivotComponent } from './lu-pivot/lu-pivot.component';
 import { JacobiComponent } from './jacobi/jacobi.component';
 import { GaussSeidelComponent } from './gauss-seidel/gauss-seidel.component';
 import { SorComponent } from './sor/sor.component';
+<<<<<<< HEAD
 import { CroutComponent } from './crout/crout.component';
 import { DoolittleComponent } from './doolittle/doolittle.component';
 import { CholeskyComponent } from './cholesky/cholesky.component';
+=======
+import { SplineLinComponent } from "./spline-lin/spline-lin.component";
+import { SplineCuadComponent } from './spline-cuad/spline-cuad.component';
+import { SplineCubicComponent } from './spline-cubic/spline-cubic.component';
+>>>>>>> e7b95a3f41cc3aa4ad5d2c234ccd09adaa05c6e0
 
 @NgModule({
   declarations: [
@@ -46,9 +52,15 @@ import { CholeskyComponent } from './cholesky/cholesky.component';
     JacobiComponent,
     GaussSeidelComponent,
     SorComponent,
+<<<<<<< HEAD
     CroutComponent,
     DoolittleComponent,
     CholeskyComponent           
+=======
+    SplineLinComponent,
+    SplineCuadComponent,
+    SplineCubicComponent,
+>>>>>>> e7b95a3f41cc3aa4ad5d2c234ccd09adaa05c6e0
   ],
   imports: [
     BrowserModule,

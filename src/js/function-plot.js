@@ -8,11 +8,19 @@ function showFunction(fnc){
       arrayFunc.push({fn: element});
     });
   }catch{
-    
+
   }
-  
+
   functionPlot({
     target: '#quadratic',
     data: arrayFunc
   })
+
+  functionPlot({
+    target: '#quadraticSplineL',
+    data: arrayFunc,
+    width: 900,
+    height: 700,
+  })
+
 }
