@@ -76,6 +76,11 @@ export class LagrangeComponent implements OnInit {
     this.request.getJson("vandermonde", {x: this.strMatrixA, y: this.strMatrixB}).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;
+        this.function = "x";
+        this.polynoms = null;
+        setTimeout(_=>{
+          this.errors = ""
+        },2000)
       }else{
         this.errors = "";
         this.function = res.result;

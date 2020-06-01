@@ -9,7 +9,7 @@ declare const showFunction:any;
   styleUrls: ['./false-rule.component.scss']
 })
 export class FalseRuleComponent implements OnInit {
-  
+
   public method = {
     a : 0,
     b : 0,
@@ -22,7 +22,7 @@ export class FalseRuleComponent implements OnInit {
   public results : [];
   public functions = ["x"];
 
-  constructor(public request : ServiceDataService) 
+  constructor(public request : ServiceDataService)
   {}
 
   ngOnInit(): void {
@@ -38,25 +38,29 @@ export class FalseRuleComponent implements OnInit {
       this.errors = "unrecognized function";
       showFunction("x");
     }
-    
+
   }
 
   getResults(){
     this.request.getJson("falseRule",{
-      a: Number(this.method.a), 
-      b: Number(this.method.b), 
-      tol: Number(this.method.tol), 
-      iters: Number(this.method.iters), 
+      a: Number(this.method.a),
+      b: Number(this.method.b),
+      tol: Number(this.method.tol),
+      iters: Number(this.method.iters),
       f: this.method.f
     }).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;
+        this.results = null;
+        setTimeout(_=>{
+          this.errors = ""
+        },2000)
       }else{
         this.errors = "";
         this.results = res.method.iters;
         console.log(res.error)
       }
     });
-    
+
   }
 }

@@ -59,9 +59,17 @@
                         <button (click)="getResults()" type="button" class="btn btn-primary col-md-12" style="font-weight: bold; margin: 0 auto; text-align: center; color: white;">Calculate</button>
                     </div>
                 </div>
-
             </div>
+            <div class="row" *ngIf="errors != ''">
+                <div class="alert alert-danger col-md-12" role="alert">
+                    {{errors}}
+                </div>
+            </div>
+        <br>
+        <br>
+
             <div class="row">
+
                 <div class="form-group col-md-5">
                     <h4 style="font-weight: bold;  color: #19005f;">Result function</h4>
                     <div class="input-group col-md-12 ">

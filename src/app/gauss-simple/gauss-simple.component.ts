@@ -19,12 +19,12 @@ export class GaussSimpleComponent implements OnInit {
   private strMatrixA = "";
   private strMatrixB = "";
 
-  constructor(public request : ServiceDataService) { 
-    
+  constructor(public request : ServiceDataService) {
+
   }
 
   ngOnInit(): void {
-    
+
   }
 
 
@@ -33,7 +33,7 @@ export class GaussSimpleComponent implements OnInit {
     this.cont = [];
     this.matrix_A = [];
     this.matrix_B = [];
-    
+
     for (let index = 0; index < this.size; index++) {
       let aux = [];
       for (let index = 0; index < this.size; index++) {
@@ -81,7 +81,7 @@ export class GaussSimpleComponent implements OnInit {
 
     return vector;
   }
-  
+
 
   getResults(){
 
@@ -93,6 +93,10 @@ export class GaussSimpleComponent implements OnInit {
     this.request.getJson("gaussSimple", {a: this.strMatrixA, b: this.strMatrixB}).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;
+        this.values = null;
+        setTimeout(_=>{
+          this.errors = ""
+        },2000)
       }else{
         this.errors = "";
         this.values = res;
@@ -100,10 +104,10 @@ export class GaussSimpleComponent implements OnInit {
         this.values['pivots'].map(element => {
           element["matrix"] = this.stringToMatrix(element["matrix"]);
         });
-        
+
       }
     });
-    
+
   }
 
   printTest(){

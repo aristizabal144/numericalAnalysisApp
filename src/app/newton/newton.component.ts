@@ -22,8 +22,8 @@ export class NewtonComponent implements OnInit {
   public results : [];
   public functions = ["x","x"];
 
-  constructor(public request : ServiceDataService) { 
-    
+  constructor(public request : ServiceDataService) {
+
   }
 
   ngOnInit(): void {
@@ -39,7 +39,7 @@ export class NewtonComponent implements OnInit {
       this.errors = "unrecognized function";
       showFunction("x");
     }
-    
+
   }
 
   onKeyFunctiondf(event: any){
@@ -51,19 +51,22 @@ export class NewtonComponent implements OnInit {
       this.errors = "unrecognized function";
       showFunction("x");
     }
-    
+
   }
 
   getResults(){
     this.request.getJson("newton", {a: Number(this.method.a), tol: Number(this.method.tol), iters: Number(this.method.iters), f: this.method.f, df: this.method.df}).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;
+        this.results = null;
+        setTimeout(_=>{
+          this.errors = ""
+        },2000)
       }else{
         this.errors = "";
         this.results = res.method.iters;
-        console.log(res.error)
       }
     });
-    
+
   }
 }

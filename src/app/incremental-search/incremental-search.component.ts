@@ -19,9 +19,9 @@ export class IncrementalSearchComponent implements OnInit {
   public errors = "";
   public results : [];
   public functions = ["x"];
-  
 
-  constructor(public request : ServiceDataService) 
+
+  constructor(public request : ServiceDataService)
   {}
 
   ngOnInit(): void {
@@ -40,16 +40,20 @@ export class IncrementalSearchComponent implements OnInit {
   }
 
   getResults(){
+
     this.request.getJson("incSearch", {start: Number(this.method.start), step: Number(this.method.step), end: Number(this.method.end), f: this.method.f}).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;
+        this.results = null;
+        setTimeout(_=>{
+          this.errors = ""
+        },2000)
       }else{
         this.errors = "";
         this.results = res.method.iters;
-        console.log(res.error)
       }
     });
-    
+
   }
 
 }

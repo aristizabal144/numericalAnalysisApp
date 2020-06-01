@@ -74,6 +74,10 @@ export class MultipleRootsComponent implements OnInit {
     }).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;
+        this.results = null;
+        setTimeout(_=>{
+          this.errors = ""
+        },2000)
       }else{
         this.errors = "";
         this.results = res.method.iters;

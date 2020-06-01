@@ -23,8 +23,8 @@ export class FixedPointComponent implements OnInit {
   public results : [];
   public functions = ["x"];
 
-  constructor(public request : ServiceDataService) { 
-    
+  constructor(public request : ServiceDataService) {
+
   }
 
   ngOnInit(): void {
@@ -40,12 +40,16 @@ export class FixedPointComponent implements OnInit {
       this.errors = "unrecognized function";
       showFunction("x");
     }
-    
+
   }
   getResults(){
     this.request.getJson("fixedPoint", {a: Number(this.method.a), tol: Number(this.method.tol), iters: Number(this.method.iters), f: this.method.f, g: this.method.g}).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;
+        this.results = null;
+        setTimeout(_=>{
+          this.errors = ""
+        },2000)
       }else{
         this.errors = "";
         this.results = res.method.iters;

@@ -78,6 +78,11 @@
         </div>
         <br>
         <br>
+        <div class="row" *ngIf="errors != ''">
+            <div class="alert alert-danger col-md-12" role="alert">
+                {{errors}}
+            </div>
+        </div>
         <table class="table table-bordered">
             <thead class="thead-dark">
               <tr>
