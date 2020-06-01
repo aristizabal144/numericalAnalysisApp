@@ -16,6 +16,7 @@ import { LuPivotComponent } from './lu-pivot/lu-pivot.component';
 import { JacobiComponent } from './jacobi/jacobi.component';
 import { GaussSeidelComponent } from './gauss-seidel/gauss-seidel.component';
 import { SorComponent } from './sor/sor.component';
+import { PlotGeneralComponent } from './plot-general/plot-general.component';
 import { CroutComponent } from './crout/crout.component';
 import { DoolittleComponent } from './doolittle/doolittle.component';
 import { CholeskyComponent } from './cholesky/cholesky.component';
@@ -29,6 +30,7 @@ import {VandermondeComponent} from "./vandermonde/vandermonde.component";
 
 const routes: Routes = [
   { path: '', component: PrincipalComponent},
+  { path: 'plot', component: PlotGeneralComponent},
   { path: 'incremental_search', component: IncrementalSearchComponent},
   { path: 'bisection', component: BisectionComponent},
   { path: 'newton', component: NewtonComponent},

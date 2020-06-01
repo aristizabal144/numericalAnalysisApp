@@ -21,6 +21,14 @@ function showFunction(fnc){
   })
 
   functionPlot({
+    target: '#general',
+    data: arrayFunc,
+    width: 800,
+    height: 700,
+
+  })
+  
+  functionPlot({
     target: '#quadraticSplineL',
     data: arrayFunc,
     width: 900,
