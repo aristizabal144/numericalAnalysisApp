@@ -20,8 +20,8 @@ import { CroutComponent } from './crout/crout.component';
 import { DoolittleComponent } from './doolittle/doolittle.component';
 import { CholeskyComponent } from './cholesky/cholesky.component';
 import { SplineLinComponent } from "./spline-lin/spline-lin.component";
-import {SplineCubicComponent} from "./spline-cubic/spline-cubic.component";
-import {SplineCuadComponent} from "./spline-cuad/spline-cuad.component";
+import { SplineCubicComponent } from "./spline-cubic/spline-cubic.component";
+import { SplineCuadComponent } from "./spline-cuad/spline-cuad.component";
 
 
 const routes: Routes = [
@@ -43,7 +43,7 @@ const routes: Routes = [
   { path: 'sor', component: SorComponent},
   { path: 'crout', component: CroutComponent},
   { path: 'doolittle', component: DoolittleComponent},
-  { path: 'cholesky', component: CholeskyComponent}
+  { path: 'cholesky', component: CholeskyComponent},
   { path: 'spline_lin', component: SplineLinComponent},
   { path: 'spline_cuad', component: SplineCuadComponent},
   { path: 'spline_cubic', component: SplineCubicComponent}
