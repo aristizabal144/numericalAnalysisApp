@@ -15,4 +15,12 @@ function showFunction(fnc){
     target: '#quadratic',
     data: arrayFunc
   })
+
+  functionPlot({
+    target: '#general',
+    data: arrayFunc,
+    width: 800,
+    height: 700,
+
+  })
 }

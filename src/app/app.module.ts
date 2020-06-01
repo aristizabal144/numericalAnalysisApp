@@ -22,6 +22,7 @@ import { LuPivotComponent } from './lu-pivot/lu-pivot.component';
 import { JacobiComponent } from './jacobi/jacobi.component';
 import { GaussSeidelComponent } from './gauss-seidel/gauss-seidel.component';
 import { SorComponent } from './sor/sor.component';
+import { PlotGeneralComponent } from './plot-general/plot-general.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { SorComponent } from './sor/sor.component';
     LuPivotComponent,
     JacobiComponent,
     GaussSeidelComponent,
-    SorComponent           
+    SorComponent,
+    PlotGeneralComponent           
   ],
   imports: [
     BrowserModule,
