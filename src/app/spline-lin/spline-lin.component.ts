@@ -63,22 +63,8 @@ export class SplineLinComponent implements OnInit {
   getResults(){
 
     //MATRIX A TO STRING
-    this.strMatrixA += "["
-
-    let sizeA = this.matrix_A.length;
-    let i = 0;
-
-    this.matrix_A.forEach(element => {
-      i++;
-      this.strMatrixA += "["
-      this.strMatrixA += element.toString();
-
-      if(i == sizeA){
-        this.strMatrixA += "]";
-      }else{
-        this.strMatrixA += "],";
-      }
-    });
+    this.strMatrixA += "[";
+    this.strMatrixA += this.matrix_A.toString();
     this.strMatrixA += "]";
 
     //MATRIX B TO STRING
