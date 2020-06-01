@@ -17,6 +17,12 @@ import { JacobiComponent } from './jacobi/jacobi.component';
 import { GaussSeidelComponent } from './gauss-seidel/gauss-seidel.component';
 import { SorComponent } from './sor/sor.component';
 import { PlotGeneralComponent } from './plot-general/plot-general.component';
+import { CroutComponent } from './crout/crout.component';
+import { DoolittleComponent } from './doolittle/doolittle.component';
+import { CholeskyComponent } from './cholesky/cholesky.component';
+import { SplineLinComponent } from "./spline-lin/spline-lin.component";
+import { SplineCubicComponent } from "./spline-cubic/spline-cubic.component";
+import { SplineCuadComponent } from "./spline-cuad/spline-cuad.component";
 
 
 const routes: Routes = [
@@ -36,7 +42,13 @@ const routes: Routes = [
   { path: 'lu_pivot', component: LuPivotComponent},
   { path: 'jacobi', component: JacobiComponent},
   { path: 'gauss_seidel', component: GaussSeidelComponent},
-  { path: 'sor', component: SorComponent}
+  { path: 'sor', component: SorComponent},
+  { path: 'crout', component: CroutComponent},
+  { path: 'doolittle', component: DoolittleComponent},
+  { path: 'cholesky', component: CholeskyComponent},
+  { path: 'spline_lin', component: SplineLinComponent},
+  { path: 'spline_cuad', component: SplineCuadComponent},
+  { path: 'spline_cubic', component: SplineCubicComponent}
 ];
 
 @NgModule({

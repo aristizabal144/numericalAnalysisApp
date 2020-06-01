@@ -3,18 +3,18 @@ import { ServiceDataService } from '../service-data.service';
 declare const showFunction:any;
 
 @Component({
-  selector: 'app-gauss-partial',
-  templateUrl: './gauss-partial.component.html',
-  styleUrls: ['./gauss-partial.component.scss']
+  selector: 'app-cholesky',
+  templateUrl: './cholesky.component.html',
+  styleUrls: ['./cholesky.component.scss']
 })
-export class GaussPartialComponent implements OnInit {
+export class CholeskyComponent implements OnInit {
 
   public errors  = "";
   public size;
   public cont = [];
   public matrix_A = [];
   public matrix_B = [];
-  public values = [];
+  public results = [];
 
   private strMatrixA = "";
   private strMatrixB = "";
@@ -90,15 +90,16 @@ export class GaussPartialComponent implements OnInit {
 
     this.matrixToString();
 
-    this.request.getJson("gaussPartial", {a: this.strMatrixA, b: this.strMatrixB}).subscribe((res: any) => {
+    this.request.getJson("cholesky", {a: this.strMatrixA, b: this.strMatrixB}).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;
       }else{
         this.errors = "";
-        this.values = res;
+        this.results = res;
 
-        this.values['pivots'].map(element => {
-          element["matrix"] = this.stringToMatrix(element["matrix"]);
+        this.results['pivots'].map(element => {
+          element["L"] = this.stringToMatrix(element["L"]);
+          element["U"] = this.stringToMatrix(element["U"]);
         });
         
       }
@@ -107,6 +108,6 @@ export class GaussPartialComponent implements OnInit {
   }
 
   printTest(){
-    console.log(this.values);
+    console.log(this.results);
   }
 }

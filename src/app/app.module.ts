@@ -23,6 +23,12 @@ import { JacobiComponent } from './jacobi/jacobi.component';
 import { GaussSeidelComponent } from './gauss-seidel/gauss-seidel.component';
 import { SorComponent } from './sor/sor.component';
 import { PlotGeneralComponent } from './plot-general/plot-general.component';
+import { CroutComponent } from './crout/crout.component';
+import { DoolittleComponent } from './doolittle/doolittle.component';
+import { CholeskyComponent } from './cholesky/cholesky.component';
+import { SplineLinComponent } from "./spline-lin/spline-lin.component";
+import { SplineCuadComponent } from './spline-cuad/spline-cuad.component';
+import { SplineCubicComponent } from './spline-cubic/spline-cubic.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +50,13 @@ import { PlotGeneralComponent } from './plot-general/plot-general.component';
     JacobiComponent,
     GaussSeidelComponent,
     SorComponent,
-    PlotGeneralComponent           
+    PlotGeneralComponent,           
+    CroutComponent,
+    DoolittleComponent,
+    CholeskyComponent,          
+    SplineLinComponent,
+    SplineCuadComponent,
+    SplineCubicComponent
   ],
   imports: [
     BrowserModule,

@@ -14,9 +14,10 @@ export class GaussSimpleComponent implements OnInit {
   public cont = [];
   public matrix_A = [];
   public matrix_B = [];
+  public values = [];
 
-  strMatrixA = "";
-  strMatrixB = "";
+  private strMatrixA = "";
+  private strMatrixB = "";
 
   constructor(public request : ServiceDataService) { 
     
@@ -45,10 +46,7 @@ export class GaussSimpleComponent implements OnInit {
 
   }
 
-  
-
-  getResults(){
-
+  matrixToString(){
     //MATRIX A TO STRING
     this.strMatrixA += "["
 
@@ -72,25 +70,43 @@ export class GaussSimpleComponent implements OnInit {
     this.strMatrixB += "[";
     this.strMatrixB += this.matrix_B.toString();
     this.strMatrixB += "]";
+  }
+
+  stringToMatrix(value : String){
+    let str = value.replace(/\s+/g, '');
+    let arr = str.split("],[");
+    const regex = /[\[|\]]/g;
+    arr = arr.map( val => val.replace(regex,""));
+    let vector = arr.map( val => val.split(","));
+
+    return vector;
+  }
+  
+
+  getResults(){
+
+    this.strMatrixA = "";
+    this.strMatrixB = "";
+
+    this.matrixToString();
 
     this.request.getJson("gaussSimple", {a: this.strMatrixA, b: this.strMatrixB}).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;
       }else{
         this.errors = "";
+        this.values = res;
+
+        this.values['pivots'].map(element => {
+          element["matrix"] = this.stringToMatrix(element["matrix"]);
+        });
         
       }
     });
     
-
-    let str = "[[2,3,4,4],[2,3,4,1]]";
-    let arr = str.split("],[");
-    const regex = /[\[|\]]/g;
-    arr = arr.map( val => val.replace(regex,""));
-    let vector = arr.map( val => val.split(","));
-
-    console.log(vector);
-    
   }
 
+  printTest(){
+    console.log(this.values);
+  }
 }
