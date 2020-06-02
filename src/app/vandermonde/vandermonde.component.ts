@@ -14,6 +14,7 @@ export class VandermondeComponent implements OnInit {
     x: "",
     y: ""
   }
+
   public results : [];
   public functions = ["x"];
   public function = "x"
@@ -30,6 +31,15 @@ export class VandermondeComponent implements OnInit {
 
   }
 
+  vectorA(){
+    if(this.matrix_A.includes("")) this.errors = "Vector X must be fullfilled"
+    else this.errors = ""
+  }
+
+  vectorB(){
+    if(this.matrix_B.includes("")) this.errors = "Vector Y must be fullfilled"
+    else this.errors = ""
+  }
   ngOnInit(): void {
     showFunction(this.functions);
   }
@@ -62,7 +72,8 @@ export class VandermondeComponent implements OnInit {
   getResults(){
 
     //MATRIX A TO STRING
-
+    this.strMatrixA = "";
+    this.strMatrixB = "";
     this.strMatrixA += "[";
     this.strMatrixA += this.matrix_A.toString();
     this.strMatrixA += "]";
@@ -71,10 +82,15 @@ export class VandermondeComponent implements OnInit {
     this.strMatrixB += "[";
     this.strMatrixB += this.matrix_B.toString();
     this.strMatrixB += "]";
-
+    console.log(this.strMatrixA,this.strMatrixB)
     this.request.getJson("vandermonde", {x: this.strMatrixA, y: this.strMatrixB}).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;
+        this.function = "x"
+        this.vanderMatrix = []
+        setTimeout(_=>{
+          this.errors = ""
+        },6000)
       }else{
         this.errors = "";
         this.function = res.polynom;

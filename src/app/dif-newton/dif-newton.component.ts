@@ -44,7 +44,15 @@ export class DifNewtonComponent implements OnInit {
       showFunction("x");
     }
   }
+  vectorA(){
+    if(this.matrix_A.includes("")) this.errors = "Vector X must be fullfilled"
+    else this.errors = ""
+  }
 
+  vectorB(){
+    if(this.matrix_B.includes("")) this.errors = "Vector Y must be fullfilled"
+    else this.errors = ""
+  }
   generateMatrix(){
 
     this.cont = [];
@@ -60,9 +68,9 @@ export class DifNewtonComponent implements OnInit {
   }
 
   getResults(){
-
     //MATRIX A TO STRING
-
+    this.strMatrixA = "";
+    this.strMatrixB = "";
     this.strMatrixA += "[";
     this.strMatrixA += this.matrix_A.toString();
     this.strMatrixA += "]";
