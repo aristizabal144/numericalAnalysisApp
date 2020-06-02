@@ -29,6 +29,23 @@ export class BisectionComponent implements OnInit {
     showFunction(this.functions);
   }
 
+
+  ab(){
+    if(this.method.a === this.method.b) this.errors = "A must be !== to B"
+    else if(this.method.a < this.method.b) this.errors = "A must be > to B"
+    else this.errors = ""
+  }
+
+  tol(){
+    if(this.method.tol < 0) this.errors = "Tolerance must be positive"
+    else this.errors = ""
+  }
+
+  iters(){
+    if(this.method.iters < 1) this.errors = "Iters must be > 0"
+    else this.errors = ""
+  }
+
   onKeyFunction(event: any){
     try{
       this.functions[0] = this.method.f;
@@ -41,6 +58,7 @@ export class BisectionComponent implements OnInit {
   }
 
   getResults(){
+    localStorage.setItem('function',this.functions[0]);
     this.request.getJson("bisection",{
       a: Number(this.method.a),
       b: Number(this.method.b),
@@ -53,7 +71,7 @@ export class BisectionComponent implements OnInit {
         this.results = null;
         setTimeout(_=>{
           this.errors = ""
-        },2000)
+        },6000)
       }else{
         this.errors = "";
         this.results = res.method.iters;

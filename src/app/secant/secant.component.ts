@@ -46,7 +46,7 @@ export class SecantComponent implements OnInit {
         this.results = null;
         setTimeout(_=>{
           this.errors = ""
-        },2000)
+        },6000)
       }else{
         this.errors = "";
         this.results = res.method.iters;

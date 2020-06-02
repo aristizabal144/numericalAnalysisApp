@@ -79,7 +79,7 @@ export class SplineCuadComponent implements OnInit {
         this.functions = null;
         setTimeout(_=>{
           this.errors = ""
-        },2000)
+        },6000)
       }else{
         this.errors = "";
         this.functions.push(...res.polynoms)

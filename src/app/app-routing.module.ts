@@ -23,9 +23,9 @@ import { CholeskyComponent } from './cholesky/cholesky.component';
 import { SplineLinComponent } from "./spline-lin/spline-lin.component";
 import { SplineCubicComponent } from "./spline-cubic/spline-cubic.component";
 import { SplineCuadComponent } from "./spline-cuad/spline-cuad.component";
-import {LagrangeComponent} from "./lagrange/lagrange.component";
-import {DifNewtonComponent} from "./dif-newton/dif-newton.component";
-import {VandermondeComponent} from "./vandermonde/vandermonde.component";
+import { LagrangeComponent } from "./lagrange/lagrange.component";
+import { DifNewtonComponent } from "./dif-newton/dif-newton.component";
+import { VandermondeComponent } from "./vandermonde/vandermonde.component";
 
 
 const routes: Routes = [

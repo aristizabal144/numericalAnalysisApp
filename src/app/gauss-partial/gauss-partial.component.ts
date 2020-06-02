@@ -93,10 +93,10 @@ export class GaussPartialComponent implements OnInit {
     this.request.getJson("gaussPartial", {a: this.strMatrixA, b: this.strMatrixB}).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;
-        this.values = null;
         setTimeout(_=>{
           this.errors = ""
-        },2000)
+        },6000)
+        this.values = []
       }else{
         this.errors = "";
         this.values = res;

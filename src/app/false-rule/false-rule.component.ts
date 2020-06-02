@@ -25,6 +25,22 @@ export class FalseRuleComponent implements OnInit {
   constructor(public request : ServiceDataService)
   {}
 
+  ab(){
+    if(this.method.a === this.method.b) this.errors = "A must be !== to B"
+    else if(this.method.a < this.method.b) this.errors = "A must be > to B"
+    else this.errors = ""
+  }
+
+  tol(){
+    if(this.method.tol < 0) this.errors = "Tolerance must be positive"
+    else this.errors = ""
+  }
+
+  iters(){
+    if(this.method.iters < 1) this.errors = "Iters must be > 0"
+    else this.errors = ""
+  }
+
   ngOnInit(): void {
     showFunction(this.functions);
   }
@@ -51,14 +67,13 @@ export class FalseRuleComponent implements OnInit {
     }).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;
-        this.results = null;
+        this.results = [];
         setTimeout(_=>{
           this.errors = ""
-        },2000)
+        },6000)
       }else{
         this.errors = "";
         this.results = res.method.iters;
-        console.log(res.error)
       }
     });
 

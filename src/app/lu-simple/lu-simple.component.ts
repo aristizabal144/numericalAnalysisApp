@@ -93,10 +93,10 @@ export class LuSimpleComponent implements OnInit {
     this.request.getJson("luSimple", {a: this.strMatrixA, b: this.strMatrixB}).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;
-        this.results = null;
         setTimeout(_=>{
           this.errors = ""
-        },2000)
+        },6000)
+        this.results = []
       }else{
         this.errors = "";
         this.results = res;

@@ -9,15 +9,22 @@ declare const showFunction:any;
 })
 export class JacobiComponent implements OnInit {
 
+  public method = {
+    tol : 0,
+    iters : 0,
+  }
+
   public errors  = "";
   public size;
   public cont = [];
   public matrix_A = [];
   public matrix_B = [];
-  public values = [];
+  public matrix_X = [];
+  public results = [];
 
   private strMatrixA = "";
   private strMatrixB = "";
+  private strMatrixX = "";
 
   constructor(public request : ServiceDataService) {
 
@@ -29,10 +36,10 @@ export class JacobiComponent implements OnInit {
 
 
   generateMatrix(){
-
     this.cont = [];
     this.matrix_A = [];
     this.matrix_B = [];
+    this.matrix_X = [];
 
     for (let index = 0; index < this.size; index++) {
       let aux = [];
@@ -42,8 +49,8 @@ export class JacobiComponent implements OnInit {
       this.matrix_A.push(aux);
       this.cont.push(index);
       this.matrix_B.push("");
+      this.matrix_X.push("");
     }
-
   }
 
   matrixToString(){
@@ -70,6 +77,11 @@ export class JacobiComponent implements OnInit {
     this.strMatrixB += "[";
     this.strMatrixB += this.matrix_B.toString();
     this.strMatrixB += "]";
+
+    //MATRIX X TO STRING
+    this.strMatrixX += "[";
+    this.strMatrixX += this.matrix_X.toString();
+    this.strMatrixX += "]";
   }
 
   stringToMatrix(value : String){
@@ -87,23 +99,23 @@ export class JacobiComponent implements OnInit {
 
     this.strMatrixA = "";
     this.strMatrixB = "";
+    this.strMatrixX = "";
 
     this.matrixToString();
 
-    this.request.getJson("jacobi", {a: this.strMatrixA, b: this.strMatrixB}).subscribe((res: any) => {
+    this.request.getJson("jacobi", {a: this.strMatrixA, b: this.strMatrixB, x: this.strMatrixX, tol: Number(this.method.tol), iters: Number(this.method.iters)}).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;
-        this.values = null;
         setTimeout(_=>{
           this.errors = ""
-        },2000)
+        },6000)
+        this.results = []
       }else{
         this.errors = "";
-        this.values = res;
-
-        this.values['pivots'].map(element => {
-          element["matrix"] = this.stringToMatrix(element["matrix"]);
-        });
+        this.results = res;
+        this.results['cmatrix'] = this.stringToMatrix(this.results['cmatrix']);
+        this.results['tmatrix'] = this.stringToMatrix(this.results['tmatrix']);
+        console.log(this.results);
 
       }
     });
@@ -111,6 +123,6 @@ export class JacobiComponent implements OnInit {
   }
 
   printTest(){
-    console.log(this.values);
+    console.log(this.results);
   }
 }

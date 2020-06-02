@@ -80,7 +80,7 @@ export class LagrangeComponent implements OnInit {
         this.polynoms = null;
         setTimeout(_=>{
           this.errors = ""
-        },2000)
+        },6000)
       }else{
         this.errors = "";
         this.function = res.result;

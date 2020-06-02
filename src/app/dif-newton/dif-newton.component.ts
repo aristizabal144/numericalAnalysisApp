@@ -80,7 +80,7 @@ export class DifNewtonComponent implements OnInit {
         this.differencesTable = null;
         setTimeout(_=>{
           this.errors = ""
-        },2000)
+        },6000)
       }else {
         this.errors = "";
         this.function = res.polynom;
