@@ -26,22 +26,21 @@ export class JacobiComponent implements OnInit {
   private strMatrixB = "";
   private strMatrixX = "";
 
-  constructor(public request : ServiceDataService) { 
-    
+  constructor(public request : ServiceDataService) {
+
   }
 
   ngOnInit(): void {
-    
+
   }
 
 
   generateMatrix(){
-
     this.cont = [];
     this.matrix_A = [];
     this.matrix_B = [];
     this.matrix_X = [];
-    
+
     for (let index = 0; index < this.size; index++) {
       let aux = [];
       for (let index = 0; index < this.size; index++) {
@@ -94,7 +93,7 @@ export class JacobiComponent implements OnInit {
 
     return vector;
   }
-  
+
 
   getResults(){
 
@@ -107,19 +106,20 @@ export class JacobiComponent implements OnInit {
     this.request.getJson("jacobi", {a: this.strMatrixA, b: this.strMatrixB, x: this.strMatrixX, tol: Number(this.method.tol), iters: Number(this.method.iters)}).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;
+        setTimeout(_=>{
+          this.errors = ""
+        },6000)
+        this.results = []
       }else{
         this.errors = "";
         this.results = res;
-        
         this.results['cmatrix'] = this.stringToMatrix(this.results['cmatrix']);
-
         this.results['tmatrix'] = this.stringToMatrix(this.results['tmatrix']);
-        
         console.log(this.results);
-        
+
       }
     });
-    
+
   }
 
   printTest(){

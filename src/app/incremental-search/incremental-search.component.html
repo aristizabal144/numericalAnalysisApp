@@ -51,26 +51,26 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="">x0</span>
                         </div>
-                        <input name="start" type="text" [(ngModel)]="method.start" class="form-control">
+                        <input name="start" type="number" [(ngModel)]="method.start" class="form-control">
                     </div>
 
                     <div class="input-group col-md-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="">Δx</span>
                         </div>
-                        <input type="text" [(ngModel)]="method.step" class="form-control">
+                        <input type="number" [(ngModel)]="method.step" (keyup)="step()" class="form-control">
                     </div>
 
                     <div class="input-group col-md-4">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="">Iterations</span>
+                            <span class="input-group-text" id="">End</span>
                         </div>
-                        <input type="text" [(ngModel)]="method.end" class="form-control">
+                        <input type="number" (keyup)="iters()" [(ngModel)]="method.end" class="form-control">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-12" style="margin-top: 25px;">
-                        <button (click)="getResults()" type="button" class="btn btn-primary col-md-12" style="font-weight: bold; margin: 0 auto; text-align: center; color: white;">Calculate</button>
+                        <button (click)="getResults()" type="button"  class="btn btn-primary col-md-12" style="font-weight: bold; margin: 0 auto; text-align: center; color: white;">Calculate</button>
                     </div>
                 </div>
 
@@ -78,6 +78,11 @@
         </div>
         <br>
         <br>
+        <div class="row" *ngIf="errors != ''">
+            <div class="alert alert-danger col-md-12" role="alert">
+                {{errors}}
+            </div>
+        </div>
         <table class="table table-bordered">
             <thead class="thead-dark">
               <tr>

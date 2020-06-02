@@ -77,6 +77,11 @@ export class SplineCuadComponent implements OnInit {
     this.request.getJson("cuadraSpline", {x: this.strMatrixA, y: this.strMatrixB}).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;
+        this.polynoms = null;
+        this.functions = null;
+        setTimeout(_=>{
+          this.errors = ""
+        },6000)
       }else{
         this.errors = "";
         this.functions.push(...res.polynoms)

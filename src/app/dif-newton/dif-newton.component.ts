@@ -77,6 +77,12 @@ export class DifNewtonComponent implements OnInit {
     this.request.getJson("newtonInter", {x: this.strMatrixA, y: this.strMatrixB}).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;
+        this.function = "x"
+        this.results = null;
+        this.differencesTable = null;
+        setTimeout(_=>{
+          this.errors = ""
+        },6000)
       }else {
         this.errors = "";
         this.function = res.polynom;
