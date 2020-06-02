@@ -33,6 +33,7 @@ export class LagrangeComponent implements OnInit {
 
   ngOnInit(): void {
     showFunction(this.functions);
+    this.function = localStorage.getItem('function');
   }
 
   onKeyFunctionF(event: any){
@@ -82,7 +83,9 @@ export class LagrangeComponent implements OnInit {
     this.strMatrixB += this.matrix_B.toString();
     this.strMatrixB += "]";
 
-    this.request.getJson("lagrange", {x: this.strMatrixA, y: this.strMatrixB}).subscribe((res: any) => {
+    localStorage.setItem('function',this.functions[0]);
+    this.request.getJson("vandermonde", {x: this.strMatrixA, y: this.strMatrixB}).subscribe((res: any) => {
+
       if(res.error){
         this.errors = res.source;
         this.function = "x";

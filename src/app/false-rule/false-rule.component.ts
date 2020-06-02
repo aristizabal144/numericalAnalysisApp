@@ -43,6 +43,7 @@ export class FalseRuleComponent implements OnInit {
 
   ngOnInit(): void {
     showFunction(this.functions);
+    this.method.f = localStorage.getItem('f');
   }
 
   onKeyFunction(event: any){
@@ -58,6 +59,7 @@ export class FalseRuleComponent implements OnInit {
   }
 
   getResults(){
+    localStorage.setItem('f',this.functions[0]);
     this.request.getJson("falseRule",{
       a: Number(this.method.a),
       b: Number(this.method.b),

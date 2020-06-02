@@ -37,6 +37,8 @@ export class NewtonComponent implements OnInit {
 
   ngOnInit(): void {
     showFunction(this.functions);
+    this.method.f = localStorage.getItem('f');
+    this.method.df = localStorage.getItem('df');
   }
 
   onKeyFunctionf(event: any){
@@ -64,6 +66,8 @@ export class NewtonComponent implements OnInit {
   }
 
   getResults(){
+    localStorage.setItem('f',this.functions[0]);
+    localStorage.setItem('df',this.functions[1]);
     this.request.getJson("newton", {a: Number(this.method.a), tol: Number(this.method.tol), iters: Number(this.method.iters), f: this.method.f, df: this.method.df}).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;

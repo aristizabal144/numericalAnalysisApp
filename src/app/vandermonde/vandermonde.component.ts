@@ -42,6 +42,7 @@ export class VandermondeComponent implements OnInit {
   }
   ngOnInit(): void {
     showFunction(this.functions);
+    this.function = localStorage.getItem('function');
   }
 
   onKeyFunctionF(event: any){
@@ -82,7 +83,8 @@ export class VandermondeComponent implements OnInit {
     this.strMatrixB += "[";
     this.strMatrixB += this.matrix_B.toString();
     this.strMatrixB += "]";
-    console.log(this.strMatrixA,this.strMatrixB)
+
+    localStorage.setItem('function',this.functions[0]);
     this.request.getJson("vandermonde", {x: this.strMatrixA, y: this.strMatrixB}).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;

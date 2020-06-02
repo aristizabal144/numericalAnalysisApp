@@ -27,6 +27,7 @@ export class BisectionComponent implements OnInit {
 
   ngOnInit(): void {
     showFunction(this.functions);
+    this.method.f = localStorage.getItem('f');
   }
 
 
@@ -58,7 +59,7 @@ export class BisectionComponent implements OnInit {
   }
 
   getResults(){
-    localStorage.setItem('function',this.functions[0]);
+    localStorage.setItem('f',this.functions[0]);
     this.request.getJson("bisection",{
       a: Number(this.method.a),
       b: Number(this.method.b),
