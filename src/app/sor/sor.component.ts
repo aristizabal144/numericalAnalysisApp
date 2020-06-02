@@ -35,6 +35,25 @@ export class SorComponent implements OnInit {
     
   }
 
+  matrixA(){
+    let pending = false;
+    for(let i = 0; i < this.matrix_A.length; i++){
+      if(this.matrix_A[i].includes("")) pending = true
+    }
+    if(pending) this.errors = "Matrix A must be fullfilled"
+    else this.errors = ""
+  }
+
+  vectorB(){
+    if(this.matrix_B.includes("")) this.errors = "Vector B must be fullfilled"
+    else this.errors = ""
+  }
+
+  vectorX(){
+    if(this.matrix_X.includes("")) this.errors = "Vector X must be fullfilled"
+    else this.errors = ""
+  }
+
   tol(){
     if(this.method.tol < 0) this.errors = "Tolerance must be positive"
     else this.errors = ""

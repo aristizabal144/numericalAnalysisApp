@@ -44,7 +44,7 @@
                         <h4 style="font-weight: bold;  color: #19005f;">Matrix A</h4>
                     </div>
                     <div class="col-md-2">
-                        <h4 style="font-weight: bold;  color: #19005f;">Matrix B</h4>
+                        <h4 style="font-weight: bold;  color: #19005f;">Vector B</h4>
                     </div>
                 </div>
 
@@ -53,24 +53,24 @@
 
                     <div class="col-md-10">
                         <div class="row" *ngFor="let item of cont; index as i" style="margin-top: 10px;">
-                            <input type="text" class="form-control col-md-1" *ngFor="let item of cont; index as j" [(ngModel)]="matrix_A[i][j]" style="margin-left: 10px;" >
+                            <input type="text" (keyup) = "matrixA()" class="form-control col-md-1" *ngFor="let item of cont; index as j" [(ngModel)]="matrix_A[i][j]" style="margin-left: 10px;" >
                         </div>
                     </div>
                     <br>
 
                     <div class="col-md-2">
                         <div class="row" *ngFor="let item of cont; index as j" style="margin-top: 10px;">
-                            <input type="text" class="form-control col-md-6"  [(ngModel)]="matrix_B[j]" style="margin-left: 10px;">
+                            <input type="text" (keyup) = "vectorB()" class="form-control col-md-6"  [(ngModel)]="matrix_B[j]" style="margin-left: 10px;">
                         </div>
                     </div>
 
                 </div>
 
-                <h4 style="font-weight: bold;  color: #19005f; margin-top: 20px;">Matrix X0</h4>
+                <h4 style="font-weight: bold;  color: #19005f; margin-top: 20px;">Vector X0</h4>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row" style="margin-top: 10px;">
-                            <input type="text" *ngFor="let item of cont; index as k" class="form-control col-md-1"  [(ngModel)]="matrix_X[k]" style="margin-left: 10px;">
+                            <input type="text" (keyup) = "vectorX()" *ngFor="let item of cont; index as k" class="form-control col-md-1"  [(ngModel)]="matrix_X[k]" style="margin-left: 10px;">
                         </div>
                     </div>
                 </div>
