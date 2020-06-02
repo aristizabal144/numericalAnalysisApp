@@ -32,7 +32,7 @@ export class BisectionComponent implements OnInit {
 
   ab(){
     if(this.method.a === this.method.b) this.errors = "A must be !== to B"
-    else if(this.method.a < this.method.b) this.errors = "A must be > to B"
+    else if(this.method.a > this.method.b) this.errors = "A must be < to B"
     else this.errors = ""
   }
 
