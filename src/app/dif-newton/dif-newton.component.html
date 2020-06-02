@@ -78,7 +78,7 @@
                     <h4 style="font-weight: bold;  color: #19005f;">Divided differences table.</h4>
                     <div class="row form-group col-md-12" style="margin-top: 10px">
                         <div class="col-md-2" *ngFor="let item of this.differencesTable">
-                                <div *ngFor="let val of item.column" style="margin-top: 10px;">
+                                <div *ngFor="let val of item" style="margin-top: 10px;">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" >{{val.toFixed(4)}}</span>
                                 </div>
