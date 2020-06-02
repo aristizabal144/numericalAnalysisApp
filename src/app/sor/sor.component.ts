@@ -35,6 +35,20 @@ export class SorComponent implements OnInit {
     
   }
 
+  tol(){
+    if(this.method.tol < 0) this.errors = "Tolerance must be positive"
+    else this.errors = ""
+  }
+
+  iters(){
+    if(this.method.iters < 1) this.errors = "Iters must be > 0"
+    else this.errors = ""
+  }
+
+  w(){
+    if(this.method.w < 0 || this.method.w > 2) this.errors = "w must be between 0 and 2"
+    else this.errors = ""
+  }
 
   generateMatrix(){
 
