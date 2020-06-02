@@ -32,7 +32,15 @@ export class FixedPointComponent implements OnInit {
     this.method.f = localStorage.getItem('f');
     this.method.g = localStorage.getItem('g');
   }
+  tol(){
+    if(this.method.tol < 0) this.errors = "Tolerance must be positive"
+    else this.errors = ""
+  }
 
+  iters(){
+    if(this.method.iters < 1) this.errors = "Iters must be > 0"
+    else this.errors = ""
+  }
   onKeyFunction(event: any){
     try{
       this.functions[0] = this.method.f;
@@ -51,6 +59,9 @@ export class FixedPointComponent implements OnInit {
       if(res.error){
         this.errors = res.source;
         this.results = null;
+        if(res.method.iters){
+          this.results = res.method.iters;
+        }
         setTimeout(_=>{
           this.errors = ""
         },6000)

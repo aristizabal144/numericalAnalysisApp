@@ -76,14 +76,14 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="">Tol</span>
                         </div>
-                        <input [(ngModel)]="method.tol" type="text" class="form-control">
+                        <input [(ngModel)]="method.tol" (keyup) = "tol()" type="text" class="form-control">
                     </div>
 
                     <div class="input-group col-md-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="">Iterations</span>
                         </div>
-                        <input [(ngModel)]="method.iters" type="text" class="form-control">
+                        <input [(ngModel)]="method.iters" type="text" (keyup)="iters()" class="form-control">
                     </div>
                 </div>
                 <div class="row">

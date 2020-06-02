@@ -71,14 +71,14 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" >Tolerance</span>
                         </div>
-                        <input type="text" [(ngModel)]="method.tol" class="form-control">
+                        <input type="text" (keyup)="tol()" [(ngModel)]="method.tol" class="form-control">
                     </div>
 
                     <div class="input-group col-md-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text" >Iterations</span>
                         </div>
-                        <input type="text" [(ngModel)]="method.iters" class="form-control">
+                        <input type="text" (keyup) = "iters()"[(ngModel)]="method.iters" class="form-control">
                     </div>
                 </div>
                 <div class="row">

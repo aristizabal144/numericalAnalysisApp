@@ -70,6 +70,9 @@ export class BisectionComponent implements OnInit {
       if(res.error){
         this.errors = res.source;
         this.results = null;
+        if(res.method.iters){
+          this.results = res.method.iters;
+        }
         setTimeout(_=>{
           this.errors = ""
         },6000)

@@ -60,9 +60,18 @@ export class LagrangeComponent implements OnInit {
     }
 
   }
+  vectorA(){
+    if(this.matrix_A.includes("")) this.errors = "Vector X must be fullfilled"
+    else this.errors = ""
+  }
 
+  vectorB(){
+    if(this.matrix_B.includes("")) this.errors = "Vector Y must be fullfilled"
+    else this.errors = ""
+  }
   getResults(){
-
+    this.strMatrixA = "";
+    this.strMatrixB = "";
     //MATRIX A TO STRING
 
     this.strMatrixA += "[";
@@ -76,6 +85,7 @@ export class LagrangeComponent implements OnInit {
 
     localStorage.setItem('function',this.functions[0]);
     this.request.getJson("vandermonde", {x: this.strMatrixA, y: this.strMatrixB}).subscribe((res: any) => {
+
       if(res.error){
         this.errors = res.source;
         this.function = "x";
@@ -86,7 +96,7 @@ export class LagrangeComponent implements OnInit {
       }else{
         this.errors = "";
         this.function = res.result;
-        this.polynoms = this.polynoms = res.L
+        this.polynoms = res.L
         this.onKeyFunctionF("1");
       }
     });
