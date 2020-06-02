@@ -42,14 +42,14 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="">x0</span>
                         </div>
-                        <input name="a" type="text" [(ngModel)]="method.a" class="form-control">
+                        <input name="a" type="text" (keyup) = "ab()" [(ngModel)]="method.a" class="form-control">
                     </div>
 
                     <div class="input-group col-md-6">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="">x1</span>
                         </div>
-                        <input type="text" [(ngModel)]="method.b" class="form-control">
+                        <input type="text" (keyup)="ab()" [(ngModel)]="method.b" class="form-control">
                     </div>
                 </div>
 
@@ -63,18 +63,18 @@
                 <div class="row">
 
 
-                    <div class="input-group col-md-6">
+                    <div class="input-group col-md-6" style="margin-top: 15px">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="">Toleration</span>
                         </div>
-                        <input type="text" [(ngModel)]="method.tol" class="form-control">
+                        <input type="text" (keyup) = "tol()" [(ngModel)]="method.tol" class="form-control">
                     </div>
 
-                    <div class="input-group col-md-6">
+                    <div class="input-group col-md-6" style="margin-top: 15px">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="">MaxIterations</span>
                         </div>
-                        <input type="text" [(ngModel)]="method.iters" class="form-control">
+                        <input type="text" (keyup)="iters()" [(ngModel)]="method.iters" class="form-control">
                     </div>
                 </div>
                 <div class="row">
@@ -83,11 +83,6 @@
                         <button (click)="getResults()" type="button" class="btn btn-primary col-md-12" style="font-weight: bold; margin: 0 auto; text-align: center; color: white;">Calculate</button>
                     </div>
                 </div>
-
-
-
-
-
             </div>
         </div>
         <br>

@@ -27,7 +27,20 @@ export class SecantComponent implements OnInit {
   ngOnInit(): void {
     showFunction(this.functions);
   }
+  ab(){
+    if(this.method.a === this.method.b) this.errors = "A must be !== to B"
+    else this.errors = ""
+  }
 
+  tol(){
+    if(this.method.tol < 0) this.errors = "Tolerance must be positive"
+    else this.errors = ""
+  }
+
+  iters(){
+    if(this.method.iters < 1) this.errors = "Iters must be > 0"
+    else this.errors = ""
+  }
   onKeyFunction(event: any){
     try{
       this.functions[0] = this.method.f;
@@ -43,14 +56,17 @@ export class SecantComponent implements OnInit {
     this.request.getJson("secant", {a: Number(this.method.a), b: Number(this.method.b), tol: Number(this.method.tol), iters: Number(this.method.iters), f: this.method.f}).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;
-        this.results = null;
+        this.results = [];
+        if(res.method.iters){
+          this.results = res.method.iters;
+        }
         setTimeout(_=>{
           this.errors = ""
         },6000)
+
       }else{
         this.errors = "";
         this.results = res.method.iters;
-        console.log(res.error)
       }
     });
 

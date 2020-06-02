@@ -42,7 +42,7 @@
                     <div class="form-group col-md-12">
                         <div class="input-group ">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="">Function f(x)</span>
+                                <span class="input-group-text" id="">f(x)</span>
                             </div>
                             <input type="text" (keyup)="onKeyFunction($event)" [(ngModel)]="method.f" class="form-control">
                             <!input type="text" [(ngModel)]="method.function" (keyup)="onKeyFunctionfunction($event)" class="form-control">
@@ -55,7 +55,7 @@
                     <div class="form-group col-md-12">
                         <div class="input-group ">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="">Function G(x)</span>
+                                <span class="input-group-text" id="">G(x)</span>
                             </div>
                             <input type="text" (keyup)="onKeyFunction($event)" [(ngModel)]="method.g" class="form-control">
                             <!input type="text" [(ngModel)]="method.function" (keyup)="onKeyFunctionfunction($event)" class="form-control">
@@ -77,7 +77,7 @@
                             <span class="input-group-text" id="">tol</span>
                         </div>
 
-                        <input type="text" [(ngModel)]="method.tol" class="form-control">
+                        <input type="text" (keyup)="tol()" [(ngModel)]="method.tol" class="form-control">
                     </div>
 
                     <div class="input-group col-md-4">
@@ -85,7 +85,7 @@
                             <span class="input-group-text" id="">Iterations</span>
                         </div>
 
-                        <input type="text" [(ngModel)]="method.iters" class="form-control">
+                        <input type="text" (keyup)="iters()" [(ngModel)]="method.iters" class="form-control">
                     </div>
                 </div>
                 <div class="row">
