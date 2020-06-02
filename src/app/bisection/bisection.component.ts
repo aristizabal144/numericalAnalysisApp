@@ -41,6 +41,7 @@ export class BisectionComponent implements OnInit {
   }
 
   getResults(){
+    localStorage.setItem('function',this.functions[0]);
     this.request.getJson("bisection",{
       a: Number(this.method.a), 
       b: Number(this.method.b), 
