@@ -28,6 +28,9 @@ export class MultipleRootsComponent implements OnInit {
 
   ngOnInit(): void {
     showFunction(this.functions);
+    this.method.f = localStorage.getItem('f');
+    this.method.df = localStorage.getItem('df');
+    this.method.ddf = localStorage.getItem('ddf');
   }
 
   onKeyFunctionF(event: any){
@@ -64,6 +67,9 @@ export class MultipleRootsComponent implements OnInit {
   }
 
   getResults(){
+    localStorage.setItem('f',this.functions[0]);
+    localStorage.setItem('df',this.functions[1]);
+    localStorage.setItem('ddf',this.functions[2]);
     this.request.getJson("multipleRoots", {
       a: Number(this.method.a),
       tol: Number(this.method.tol),

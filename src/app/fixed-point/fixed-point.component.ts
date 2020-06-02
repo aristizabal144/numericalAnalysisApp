@@ -29,6 +29,8 @@ export class FixedPointComponent implements OnInit {
 
   ngOnInit(): void {
     showFunction(this.functions);
+    this.method.f = localStorage.getItem('f');
+    this.method.g = localStorage.getItem('g');
   }
 
   onKeyFunction(event: any){
@@ -43,6 +45,8 @@ export class FixedPointComponent implements OnInit {
     
   }
   getResults(){
+    localStorage.setItem('f',this.functions[0]);
+    localStorage.setItem('g',this.functions[1]);
     this.request.getJson("fixedPoint", {a: Number(this.method.a), tol: Number(this.method.tol), iters: Number(this.method.iters), f: this.method.f, g: this.method.g}).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;

@@ -32,6 +32,7 @@ export class DifNewtonComponent implements OnInit {
 
   ngOnInit(): void {
     showFunction(this.functions);
+    this.function = localStorage.getItem('function');
   }
 
   onKeyFunctionF(event: any){
@@ -72,6 +73,7 @@ export class DifNewtonComponent implements OnInit {
     this.strMatrixB += this.matrix_B.toString();
     this.strMatrixB += "]";
 
+    localStorage.setItem('function',this.functions[0]);
     this.request.getJson("newtonInter", {x: this.strMatrixA, y: this.strMatrixB}).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;

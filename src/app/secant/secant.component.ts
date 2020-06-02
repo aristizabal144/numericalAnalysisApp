@@ -26,6 +26,7 @@ export class SecantComponent implements OnInit {
 
   ngOnInit(): void {
     showFunction(this.functions);
+    this.method.f = localStorage.getItem('f');
   }
 
   onKeyFunction(event: any){
@@ -40,6 +41,7 @@ export class SecantComponent implements OnInit {
   
   }
   getResults(){
+    localStorage.setItem('f',this.functions[0]);
     this.request.getJson("secant", {a: Number(this.method.a), b: Number(this.method.b), tol: Number(this.method.tol), iters: Number(this.method.iters), f: this.method.f}).subscribe((res: any) => {
       if(res.error){
         this.errors = res.source;
