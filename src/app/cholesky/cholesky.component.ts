@@ -44,6 +44,17 @@ export class CholeskyComponent implements OnInit {
       this.matrix_B.push("");
     }
 
+    let saveMatrixA = JSON.parse(localStorage.getItem('matrixa'));
+    let saveMatrixB = JSON.parse(localStorage.getItem('matrixb'));
+
+    for (let i = 0; i < saveMatrixA.length; i++) {
+      for (let j = 0; j < saveMatrixA.length; j++) {
+        this.matrix_A[i][j]= saveMatrixA[i][j];
+        
+      }
+      this.matrix_B[i]= saveMatrixB[i];
+    }
+
   }
 
   matrixToString(){
@@ -101,6 +112,9 @@ export class CholeskyComponent implements OnInit {
     this.strMatrixB = "";
 
     this.matrixToString();
+
+    localStorage.setItem('matrixa', this.strMatrixA);
+    localStorage.setItem('matrixb', this.strMatrixB);
 
     this.request.getJson("cholesky", {a: this.strMatrixA, b: this.strMatrixB}).subscribe((res: any) => {
       if(res.error){
