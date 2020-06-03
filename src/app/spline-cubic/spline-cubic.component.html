@@ -13,9 +13,11 @@
         <div class="row">
             <div class="col-md-6">
                 <h1 class="mb-4" style="font-weight: bold; text-align: center; color: #19005f;" >Cubic spline</h1>
-                <p>
-                    here goes text
-                </p>
+                <ul>
+                    <li>We can improve the appearance of the piecewise interpolation by matching not only the data values but also the slopes and the concavities of each individual interpolating segment at the interior data points.</li>
+                    <li>For (n+1) data values (Vk,Ik) we would have n conditions to match the values I(Vk), (n-1) conditions to match the slopes I'(Vk) and (n-1) conditions to match the concavities I''(Vk), i.e. 3n - 2 conditions (equations). Cubic splines would be good candidates for such interpolation: Ik(V) = Ik + ak ( V - Vk ) + bk ( V - Vk )2 + ck ( V - Vk )3, where V = [Vk,Vk+1] and k = 0,1,...,(n-1). </li>
+                    <li>The cubic splines have 3n unknown coefficients (more than required).</li>
+                </ul>
 
                 <img src="" alt="" style="margin:10px auto; display:block;">
 

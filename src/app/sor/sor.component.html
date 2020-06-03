@@ -13,13 +13,14 @@
         <div class="row">
             <div class="col-md-6">
                 <h1 class="mb-4" style="font-weight: bold; text-align: center; color: #19005f;" >SOR</h1>
-                <p>
-                    The successive overrelaxation method (SOR) is a method of solving a linear
-                    system of equations Ax=b derived by extrapolating the Gauss-Seidel method.
-                    This extrapolation takes the form of a weighted average between the previous
-                    iterate and the computed Gauss-Seidel iterate successively for each component.
-                </p>
-
+                <ul>
+                    <li>The successive overrelaxation method (SOR) is a method of solving a linear system of equations Ax=b derived by extrapolating the Gauss-Seidel method.</li>
+                    <li>This extrapolation takes the form of a weighted average between the previous iterate and the computed Gauss-Seidel iterate successively for each component.</li>
+                    <li>w value refers to lambda and its the weighting factor, which depending on its value the behaviour of the gauss-seidel method Will get better or not.</li>
+                    <li>If w = 1 we got Gauss-Seidel.</li>
+                    <li>If 0 < w < 1 we got sub-relaxation methods (It’s used to get the convergence of some non-convergent systems by Gauss-seidel).</li>
+                    <li>If 1 < w < 2 we got over-relaxation methods (It’s used to get the convergence of some convergent systems by Gauss-seidel that are too slow).</li>
+                </ul>
                      <img src="" alt="" style="margin:10px auto; display:block;">
 
             </div>
