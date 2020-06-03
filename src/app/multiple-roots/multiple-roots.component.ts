@@ -27,10 +27,14 @@ export class MultipleRootsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    showFunction(this.functions);
     this.method.f = localStorage.getItem('f');
+    this.functions[0] = this.method.f;
     this.method.df = localStorage.getItem('df');
+    this.functions[1] = this.method.df;
     this.method.ddf = localStorage.getItem('ddf');
+    this.functions[2] = this.method.ddf;
+    showFunction(this.functions);
+    
   }
 
   onKeyFunctionF(event: any){

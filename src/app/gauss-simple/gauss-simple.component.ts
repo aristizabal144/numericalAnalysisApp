@@ -67,7 +67,6 @@ export class GaussSimpleComponent implements OnInit {
       }
       this.matrix_B[i]= saveMatrixB[i];
     }
-
   }
 
   matrixToString(){

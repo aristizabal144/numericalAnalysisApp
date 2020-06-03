@@ -59,6 +59,15 @@ export class SplineCuadComponent implements OnInit {
       this.matrix_B.push("");
     }
 
+    let saveMatrixA = JSON.parse(localStorage.getItem('vectorx'));
+    let saveMatrixB = JSON.parse(localStorage.getItem('vectory'));
+
+    for (let i = 0; i < saveMatrixA.length; i++) {
+      
+      this.matrix_A[i]= saveMatrixA[i];
+      this.matrix_B[i]= saveMatrixB[i];
+
+    }
   }
 
   getResults(){
@@ -72,6 +81,9 @@ export class SplineCuadComponent implements OnInit {
     this.strMatrixB += "[";
     this.strMatrixB += this.matrix_B.toString();
     this.strMatrixB += "]";
+
+    localStorage.setItem('vectorx',this.strMatrixA);
+    localStorage.setItem('vectory',this.strMatrixB);
 
     localStorage.setItem('function',this.functions[0]);
     this.request.getJson("cuadraSpline", {x: this.strMatrixA, y: this.strMatrixB}).subscribe((res: any) => {

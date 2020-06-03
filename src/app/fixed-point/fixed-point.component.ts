@@ -28,9 +28,11 @@ export class FixedPointComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    showFunction(this.functions);
     this.method.f = localStorage.getItem('f');
+    this.functions[0] = this.method.f;
     this.method.g = localStorage.getItem('g');
+    this.functions[1] = this.method.g;
+    showFunction(this.functions);
   }
   tol(){
     if(this.method.tol < 0) this.errors = "Tolerance must be positive"
@@ -50,7 +52,16 @@ export class FixedPointComponent implements OnInit {
       this.errors = "unrecognized function";
       showFunction("x");
     }
-
+  }
+  onKeyFunctionG(event: any){
+    try{
+      this.functions[1] = this.method.g;
+      showFunction(this.functions);
+      this.errors = "";
+    }catch{
+      this.errors = "unrecognized function";
+      showFunction("x");
+    }
   }
   getResults(){
     localStorage.setItem('f',this.functions[0]);

@@ -42,8 +42,9 @@ export class FalseRuleComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    showFunction(this.functions);
     this.method.f = localStorage.getItem('f');
+    this.functions[0] = this.method.f;
+    showFunction(this.functions);
   }
 
   onKeyFunction(event: any){
