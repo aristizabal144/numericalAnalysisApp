@@ -27,12 +27,12 @@ export class SorComponent implements OnInit {
   private strMatrixB = "";
   private strMatrixX = "";
 
-  constructor(public request : ServiceDataService) { 
-    
+  constructor(public request : ServiceDataService) {
+
   }
 
   ngOnInit(): void {
-    
+
   }
 
   matrixA(){
@@ -75,7 +75,7 @@ export class SorComponent implements OnInit {
     this.matrix_A = [];
     this.matrix_B = [];
     this.matrix_X = [];
-    
+
     for (let index = 0; index < this.size; index++) {
       let aux = [];
       for (let index = 0; index < this.size; index++) {
@@ -93,13 +93,15 @@ export class SorComponent implements OnInit {
     for (let i = 0; i < saveMatrixA.length; i++) {
       for (let j = 0; j < saveMatrixA.length; j++) {
         this.matrix_A[i][j]= saveMatrixA[i][j];
-        
+
       }
       this.matrix_B[i]= saveMatrixB[i];
     }
   }
 
   matrixToString(){
+    this.strMatrixA = ""
+    this.strMatrixB = ""
     //MATRIX A TO STRING
     this.strMatrixA += "["
 
@@ -139,7 +141,7 @@ export class SorComponent implements OnInit {
 
     return vector;
   }
-  
+
 
   getResults(){
 
@@ -158,16 +160,16 @@ export class SorComponent implements OnInit {
       }else{
         this.errors = "";
         this.results = res;
-        
+
         this.results['CMatrix'] = this.stringToMatrix(this.results['CMatrix']);
 
         this.results['TMatrix'] = this.stringToMatrix(this.results['TMatrix']);
-        
+
         console.log(this.results);
-        
+
       }
     });
-    
+
   }
 
   printTest(){

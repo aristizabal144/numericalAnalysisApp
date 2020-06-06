@@ -50,7 +50,7 @@ export class CroutComponent implements OnInit {
     for (let i = 0; i < saveMatrixA.length; i++) {
       for (let j = 0; j < saveMatrixA.length; j++) {
         this.matrix_A[i][j]= saveMatrixA[i][j];
-        
+
       }
       this.matrix_B[i]= saveMatrixB[i];
     }
@@ -58,6 +58,8 @@ export class CroutComponent implements OnInit {
   }
 
   matrixToString(){
+    this.strMatrixA = ""
+    this.strMatrixB = ""
     //MATRIX A TO STRING
     this.strMatrixA += "["
 

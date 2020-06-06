@@ -63,7 +63,7 @@ export class SplineLinComponent implements OnInit {
     let saveMatrixB = JSON.parse(localStorage.getItem('vectory'));
 
     for (let i = 0; i < saveMatrixA.length; i++) {
-      
+
       this.matrix_A[i]= saveMatrixA[i];
       this.matrix_B[i]= saveMatrixB[i];
 
@@ -72,7 +72,8 @@ export class SplineLinComponent implements OnInit {
   }
 
   getResults(){
-
+    this.strMatrixA = ""
+    this.strMatrixB = ""
     //MATRIX A TO STRING
     this.strMatrixA += "[";
     this.strMatrixA += this.matrix_A.toString();
@@ -102,15 +103,6 @@ export class SplineLinComponent implements OnInit {
         this.onKeyFunctionF("1");
       }
     });
-
-
-    let str = "[[2,3,4,4],[2,3,4,1]]";
-    let arr = str.split("],[");
-    const regex = /[\[|\]]/g;
-    arr = arr.map( val => val.replace(regex,""));
-    let vector = arr.map( val => val.split(","));
-
-    console.log(vector);
 
   }
 }

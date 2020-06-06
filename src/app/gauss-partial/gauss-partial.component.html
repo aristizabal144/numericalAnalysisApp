@@ -20,7 +20,7 @@
                 <li>If there is 0 in the main diagonal, it cannot be operated, so it is necessary to rearrange or rows or columns to correct truncation problems. </li>
                 <li>The Algorithm seeks to rearrange the rows and columns in such a way that values other than 0 are on the main diagonal, and then perform the simple Gaussian elimination method and reduce rounding errors. </li>
                 <li>In the matrix, its upper triangle must have a system of equations equivalent to the initial one. In general this method proposes the elimination of variables from the two-dimensional system, this method is effective for simple operations.</li>
-                
+
                 </ul>
 
                      <img src="" alt="" style="margin:10px auto; display:block;">
@@ -51,14 +51,14 @@
 
                     <div class="col-md-10">
                         <div class="row" *ngFor="let item of cont; index as i" style="margin-top: 10px;">
-                            <input type="text" (keyup)="matrixA()" class="form-control col-md-1" *ngFor="let item of cont; index as j" [(ngModel)]="matrix_A[i][j]" style="margin-left: 10px;" >
+                            <input type="text" (keyup)="matrixA()" class="form-control col-md-2" *ngFor="let item of cont; index as j" [(ngModel)]="matrix_A[i][j]" style="margin-left: 2px;" >
                         </div>
                     </div>
                     <br>
 
                     <div class="col-md-2">
                         <div class="row" *ngFor="let item of cont; index as j" style="margin-top: 10px;">
-                            <input type="text" (keyup)="vectorB()" class="form-control col-md-6"  [(ngModel)]="matrix_B[j]" style="margin-left: 10px;">
+                            <input type="text" (keyup)="vectorB()" class="form-control col-md-12"  [(ngModel)]="matrix_B[j]" style="margin-left: 2px;">
                         </div>
                     </div>
                 </div>

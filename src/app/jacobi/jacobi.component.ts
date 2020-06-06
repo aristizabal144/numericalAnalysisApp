@@ -86,13 +86,15 @@ export class JacobiComponent implements OnInit {
     for (let i = 0; i < saveMatrixA.length; i++) {
       for (let j = 0; j < saveMatrixA.length; j++) {
         this.matrix_A[i][j]= saveMatrixA[i][j];
-        
+
       }
       this.matrix_B[i]= saveMatrixB[i];
     }
   }
 
   matrixToString(){
+    this.strMatrixA = ""
+    this.strMatrixB = ""
     //MATRIX A TO STRING
     this.strMatrixA += "["
 

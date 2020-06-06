@@ -47,14 +47,14 @@
 
                     <div class="col-md-10">
                         <div class="row" *ngFor="let item of cont; index as i" style="margin-top: 10px;">
-                            <input type="text" (keyup) = "matrixA()" class="form-control col-md-1" *ngFor="let item of cont; index as j" [(ngModel)]="matrix_A[i][j]" style="margin-left: 10px;" >
+                            <input type="text" (keyup) = "matrixA()" class="form-control col-md-2" *ngFor="let item of cont; index as j" [(ngModel)]="matrix_A[i][j]" style="margin-left: 2px;" >
                         </div>
                     </div>
                     <br>
 
                     <div class="col-md-2">
                         <div class="row" *ngFor="let item of cont; index as j" style="margin-top: 10px;">
-                            <input type="text" (keyup) = "vectorB()" class="form-control col-md-6"  [(ngModel)]="matrix_B[j]" style="margin-left: 10px;">
+                            <input type="text" (keyup) = "vectorB()" class="form-control col-md-12"  [(ngModel)]="matrix_B[j]" style="margin-left:2 px;">
                         </div>
                     </div>
 

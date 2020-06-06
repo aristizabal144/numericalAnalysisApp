@@ -70,7 +70,7 @@ export class DifNewtonComponent implements OnInit {
     let saveMatrixB = JSON.parse(localStorage.getItem('vectory'));
 
     for (let i = 0; i < saveMatrixA.length; i++) {
-      
+
       this.matrix_A[i]= saveMatrixA[i];
       this.matrix_B[i]= saveMatrixB[i];
 
@@ -79,6 +79,8 @@ export class DifNewtonComponent implements OnInit {
   }
 
   getResults(){
+    this.strMatrixA = ""
+    this.strMatrixB = ""
     //MATRIX A TO STRING
     this.strMatrixA = "";
     this.strMatrixB = "";
